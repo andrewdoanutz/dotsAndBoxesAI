@@ -334,9 +334,12 @@ class BoxesandGridsGame():
         infinity = float('inf')
         bestMove=[]
         bestScore=-infinity
+        '''
         for move in self.list_possible_moves(horizontal,vertical):
             self.evaluate(self.alphabeta(2,-infinity,infinity,True,True,move,horizontal,vertical,self.score_player2,self.score_player1),bestScore,bestMove)
         return bestMove
+        '''
+        return self.alphabeta(2,-infinity,infinity,True,True,[0,0,0],horizontal,vertical,self.score_player2,self.score_player1)[0]
         
     def next_possible_testMoves(self,move,horizontal,vertical):
         #make the move true if the last move is not true to be true in the psuedo list
