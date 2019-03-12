@@ -286,7 +286,7 @@ class BoxesandGridsGame():
     def player1(self):
         temp_h=self.boardh
         temp_v=self.boardv
-        
+    
         next_move=self.list_possible_moves(temp_h,temp_v)
         
         best_move=next_move[0]
@@ -302,7 +302,14 @@ class BoxesandGridsGame():
         
         
         self.make_move(best_move,0)
+        '''
+        next_move=self.minimax(temp_h,temp_v)
+        #next_move_alpha=self.alphabetapruning();
         
+        
+        self.make_move(next_move,0)
+        print ('move_made by player 1',next_move)
+        '''
     '''
     You will make changes to the code from this part onwards
     '''
@@ -339,7 +346,7 @@ class BoxesandGridsGame():
             self.evaluate(self.alphabeta(2,-infinity,infinity,True,True,move,horizontal,vertical,self.score_player2,self.score_player1),bestScore,bestMove)
         return bestMove
         '''
-        return self.alphabeta(2,-infinity,infinity,True,True,[0,0,0],horizontal,vertical,self.score_player2,self.score_player1)[0]
+        return self.alphabeta(4,-infinity,infinity,True,True,[0,0,0],horizontal,vertical,self.score_player2,self.score_player1)[0]
         
     def next_possible_testMoves(self,move,horizontal,vertical):
         #make the move true if the last move is not true to be true in the psuedo list
@@ -381,7 +388,7 @@ class BoxesandGridsGame():
                     best_score = temp[1]
                 alpha = max(best_score, alpha)
                 if beta <= alpha:
-                    print("Made an alpha pruning, the alpha value is "+str(alpha))
+                    print("Made an alpha pruning, the alpha value is "+str(alpha) +" and the beta value is "+str(beta))
                     break
             return [best_move, best_score]
         else:
@@ -395,7 +402,7 @@ class BoxesandGridsGame():
                     worse_score = temp[1]
                 beta = min(beta, worse_score)
                 if beta <= alpha:
-                    print("Made an beta pruning, the beta value is "+str(beta))
+                    print("Made an beta pruning, the alpha value is "+str(alpha) +" and the beta value is "+str(beta))
                     break
             return [worse_move, worse_score]
     
