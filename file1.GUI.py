@@ -388,7 +388,6 @@ class BoxesandGridsGame():
                     best_score = temp[1]
                 alpha = max(best_score, alpha)
                 if beta <= alpha:
-                    print("Made an alpha pruning, the alpha value is "+str(alpha) +" and the beta value is "+str(beta))
                     break
             return [best_move, best_score]
         else:
@@ -402,7 +401,6 @@ class BoxesandGridsGame():
                     worse_score = temp[1]
                 beta = min(beta, worse_score)
                 if beta <= alpha:
-                    print("Made an beta pruning, the alpha value is "+str(alpha) +" and the beta value is "+str(beta))
                     break
             return [worse_move, worse_score]
     
