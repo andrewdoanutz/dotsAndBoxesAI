@@ -339,9 +339,10 @@ class BoxesandGridsGame():
     
     def minimax(self,horizontal,vertical):
         infinity = float('inf')
+        '''
         bestMove=[]
         bestScore=-infinity
-        '''
+        
         for move in self.list_possible_moves(horizontal,vertical):
             self.evaluate(self.alphabeta(2,-infinity,infinity,True,True,move,horizontal,vertical,self.score_player2,self.score_player1),bestScore,bestMove)
         return bestMove
