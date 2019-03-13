@@ -408,9 +408,14 @@ class BoxesandGridsGame():
     '''
     Write down you own evaluation strategy in the evaluation function 
     '''
-    def evaluate(self,posMove,bestScore,bestMove):
-        if(posMove[1]>bestScore):
-                bestScore=posMove[1]
+    def evaluate(self,posMove,scoreV,bestMove,maxV):
+        if maxV:
+            if(posMove[1]>scoreV):
+                    scoreV=posMove[1]
+                    bestMove=posMove[0]
+        else:
+            if posMove[1] < scoreV:
+                scoreV=posMove[1]
                 bestMove=posMove[0]
     
 
