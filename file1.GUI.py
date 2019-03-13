@@ -396,7 +396,7 @@ class BoxesandGridsGame():
             worse_score = inf
             for move in children:
                 tempstate=self.next_state(move,horizontal,vertical)
-                temp = self.alphabeta( depth - 1, alpha, beta, False, player, move,tempstate[0],tempstate[1],p2score,p1score+tempstate[2])
+                temp = self.alphabeta( depth - 1, alpha, beta, True, player, move,tempstate[0],tempstate[1],p2score,p1score+tempstate[2])
                 if temp[1] < worse_score:
                     worse_move = move
                     worse_score = temp[1]
